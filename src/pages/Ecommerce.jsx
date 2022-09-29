@@ -1,7 +1,7 @@
 import React from "react";
 
-const Ecommers = () => {
-  return <div>Ecommers</div>;
+const Ecommerce = () => {
+  return <div>Ecommerce</div>;
 };
 
-export default Ecommers;
+export default Ecommerce;
