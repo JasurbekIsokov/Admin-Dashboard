@@ -30,17 +30,42 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 );
 
 const Navbar = () => {
-  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick } =
-    useStateContext();
+  const {
+    activeMenu,
+    setActiveMenu,
+    isClicked,
+    setIsClicked,
+    handleClick,
+    screenSize,
+    setScreenSize,
+  } = useStateContext();
+
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Agar ekranning o'lchovi 900 dan kichiklashsa menu yo'qoladi
+  useEffect(() => {
+    screenSize <= 900 ? setActiveMenu(false) : setActiveMenu(true);
+  }, [screenSize]);
 
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
+      {/* Menuning iconi */}
       <NavButton
         title="Menu"
         customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
         color="blue"
         icon={<AiOutlineMenu />}
       />
+
+      {/* Cartning iconi */}
       <div className="flex">
         <NavButton
           title="Cart"
@@ -48,6 +73,8 @@ const Navbar = () => {
           color="blue"
           icon={<FiShoppingCart />}
         />
+
+        {/* Chatning iconi */}
         <NavButton
           title="Chat"
           dotColor="#03C9D7"
@@ -55,6 +82,8 @@ const Navbar = () => {
           color="blue"
           icon={<BsChatLeft />}
         />
+
+        {/* Notificationning iconi */}
         <NavButton
           title="Notification"
           dotColor="#03C9D7"
@@ -62,6 +91,8 @@ const Navbar = () => {
           color="blue"
           icon={<RiNotification3Line />}
         />
+
+        {/* userProfilening iconi */}
         <TooltipComponent content="Profile" position="BottomCenter">
           <div
             className="flex items-center
