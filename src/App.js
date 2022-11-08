@@ -66,6 +66,7 @@ const App = () => {
             </div>
 
             <div>
+              <ThemeSettings />
               <Routes>
                 {/* Dashboard (sayt ochilishi bilan ko'rinadigan sahifa) */}
                 <Route path="/" element={<Ecommerce />} />
