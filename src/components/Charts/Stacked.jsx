@@ -17,6 +17,7 @@ import {
 } from "../../data/dummy";
 import { useStateContext } from "../../contexts/ContextProvider";
 
+
 const Stacked = ({ width, height }) => {
   const { currentMode } = useStateContext();
 
