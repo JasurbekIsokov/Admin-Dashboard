@@ -12,3 +12,5 @@ ReactDOM.render(
   </ContextProvider>,
   document.getElementById("root")
 );
+
+//  Build project version: 1.0.0
