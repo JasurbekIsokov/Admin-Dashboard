@@ -38,7 +38,7 @@ const UserProfile = () => {
           </p>
           <p className="text-gray-500 text-sm font-semibold dark:text-gray-400">
             {" "}
-            info@shop.com{" "}
+            jasurisoqov685@gmail.com{" "}
           </p>
         </div>
       </div>
